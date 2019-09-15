@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      1.1.1
+// @version      1.1.001
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
