@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      0.1.7
+// @version      0.1.8
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
@@ -71,17 +71,19 @@ function extendGuia(){
  
 $(document).ready(function(){
     'use strict';
-    console.log("Dr. Watson is thinking...");
+    console.log("Dr. Watson is thinking [document]...");
     
-    var iframe = document.querySelector("#iframeasp");
-    var innerDoc = (iframe.contentDocument) ? iframe.contentDocument : iframe.contentWindow.document;
-    var principal2 = innerDoc.querySelector("#principal2");    
-    var currentFrame = principal2.src;
+    $('#iframeasp').on( 'load', function() {
+        console.log("Dr. Watson is thinking about [iframeasp]...");
+        $('#principal2').on( 'load', function() {
+            console.log("Dr. Watson is thinking about [principal2]...");
+            var currentFrame = $('#principal2').context.activeElement.src
+            console.log(currentFrame);
+        });
+    });
     
-    console.log(currentFrame);
-    
-    if (principal2.src.lastIndexOf("ace003d") === 62) extendHome();
-    else if (principal2.src.lastIndexOf("atd0198") === 66) extendGuia();
+    //if (principal2.src.lastIndexOf("ace003d") === 62) extendHome();
+    //else if (principal2.src.lastIndexOf("atd0198") === 66) extendGuia();
     
     console.log("Dr. Watson is done.");
 });
