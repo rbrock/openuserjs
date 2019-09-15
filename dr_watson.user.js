@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      1.1.001
+// @version      1.1.002
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
@@ -61,9 +61,13 @@ function extendGuia(){
     var principal2 = iframeaspDoc.querySelector("#principal2");
     var principal2Doc = (principal2.contentDocument) ? principal2.contentDocument : principal2.contentWindow.document;
     
-    if(principal2Doc.querySelector("#num_pedido")) {
+    if (principal2Doc.querySelector("#num_pedido")) {
         /* GUIA CARREGADA */
         GM_addStyle(`
+            fieldset#tbl_inc_abre_table {
+                display: none;
+            }
+
             table#tbAnexo {
                 position: fixed;
                 display: block;
