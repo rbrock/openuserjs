@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      0.1.016
+// @version      0.1.018
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
@@ -37,7 +37,7 @@ function extendHome() {
                 text: "Sim",
                 btnClass: 'btn-green',
                 action: function () {
-                    $("#btn-menu").click()
+                    if (document.querySelector("#area-menu").style.display == "block") $("#btn-menu").click()
                     $("#dropdown-lvlATD22 > div > ul > li:nth-child(10) > a").click();
                 }
             },
@@ -52,7 +52,7 @@ function extendHome() {
 }
 
 function extendGuia(){
-    if($('#num_pedido').length) {
+    if(principal2Doc.querySelector("#num_pedido")) {
         /* GUIA CARREGADA */
         GM_addStyle(`
             table#tbAnexo {
@@ -70,7 +70,7 @@ function extendGuia(){
         `);
     } else {
         /* TELA DE PESQUISA */
-        $("#chk_pendente").click();
+        principal2Doc.querySelector("#chk_pendente").click()
     }
 }
  
@@ -78,13 +78,19 @@ $(document).ready(function(){
     'use strict';
     console.log("Dr. Watson is ready", $(document));
     
+    var iframeasp = document.querySelector("#iframeasp");
+    var iframeaspDoc = (iframeasp.contentDocument) ? iframeasp.contentDocument : iframeasp.contentWindow.document;
+
+    var principal2 = iframeaspDoc.querySelector("#principal2")
+    var principal2Doc = (principal2.contentDocument) ? principal2.contentDocument : principal2.contentWindow.document;
+    
     $("#iframeasp").on("load", function() {
         console.log("Dr. Watson is ready", $("#iframeasp"));
         var currentFrame = $("#iframeasp")[0].src;
         console.log("Dr. Watson current", currentFrame);
         
-        if (currentFrame.lastIndexOf("ace003d.asp") === 85) extendHome();
-        else if (currentFrame.lastIndexOf("atd0198a.asp") === 89) extendGuia();
+        if (currentFrame.lastIndexOf("ace003d.asp") == 85) extendHome();
+        else if (currentFrame.lastIndexOf("atd0198a.asp") == 89) extendGuia();
     });
     
     console.log("Dr. Watson is done.");
