@@ -71,13 +71,13 @@ function extendGuia(){
  
 $(document).ready(function(){
     'use strict';
-    console.log("Dr. Watson is thinking [document]...");
+    console.log("Dr. Watson is ready", $(document));
     
     $("#iframeasp").on("load", function() {
-        console.log("Dr. Watson is here", $("#iframeasp"));
+        console.log("Dr. Watson is ready", $("#iframeasp"));
         
         $("#principal2").on("load", function() {
-            console.log("Dr. Watson is here", $("#principal2"));
+            console.log("Dr. Watson is ready", $("#principal2"));
             var currentFrame = $('#principal2').context.activeElement.src;
             console.log(currentFrame);
             extendHome();
