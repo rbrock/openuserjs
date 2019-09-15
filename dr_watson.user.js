@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      0.1.021
+// @version      0.1.022
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
@@ -75,9 +75,10 @@ function extendGuia(){
         `);
     } else {
         /* TELA DE PESQUISA */
-        principal2Doc.querySelector("#chk_pendente").click()
-        principal2Doc.querySelector("#cod_grupo_encaminhamento").selectedIndex = 47
-        principal2Doc.querySelector("#cod_usuario_retorno").value = ""
+        principal2Doc.querySelector("#chk_pendente").click();
+        principal2Doc.querySelector("#cod_grupo_encaminhamento").selectedIndex = 47;
+        principal2Doc.querySelector("#cod_usuario_retorno").value = "";
+        iframeaspDoc.querySelector("#btn_acao_continuar").click();
     }
 }
  
