@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      0.1.022
+// @version      0.1.023
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
@@ -54,7 +54,11 @@ function extendHome() {
 function extendGuia(){
     var iframeasp = document.querySelector("#iframeasp");
     var iframeaspDoc = (iframeasp.contentDocument) ? iframeasp.contentDocument : iframeasp.contentWindow.document;
-    var principal2 = iframeaspDoc.querySelector("#principal2")
+    
+    var toolbarMvcToAsp = iframeaspDoc.querySelector("#toolbarMvcToAsp");
+    var toolbarMvcToAspDoc = (toolbarMvcToAsp.contentDocument) ? toolbarMvcToAsp.contentDocument : toolbarMvcToAsp.contentWindow.document;
+    
+    var principal2 = iframeaspDoc.querySelector("#principal2");
     var principal2Doc = (principal2.contentDocument) ? principal2.contentDocument : principal2.contentWindow.document;
     
     if(principal2Doc.querySelector("#num_pedido")) {
@@ -78,7 +82,7 @@ function extendGuia(){
         principal2Doc.querySelector("#chk_pendente").click();
         principal2Doc.querySelector("#cod_grupo_encaminhamento").selectedIndex = 47;
         principal2Doc.querySelector("#cod_usuario_retorno").value = "";
-        iframeaspDoc.querySelector("#btn_acao_continuar").click();
+        toolbarMvcToAspDoc.querySelector("#btn_acao_continuar").click();
     }
 }
  
