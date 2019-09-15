@@ -73,14 +73,16 @@ $(document).ready(function(){
     'use strict';
     console.log("Dr. Watson is thinking [document]...");
     
-    $('#iframeasp').on( 'load', function() {
+    $("#iframeasp").on("load", function() {
         console.log("Dr. Watson is thinking about [iframeasp]...");
-        $('#principal2').on( 'load', function() {
+        
+    });
+    
+    $("#principal2").on("load", function() {
             console.log("Dr. Watson is thinking about [principal2]...");
             var currentFrame = $('#principal2').context.activeElement.src
             console.log(currentFrame);
         });
-    });
     
     //if (principal2.src.lastIndexOf("ace003d") === 62) extendHome();
     //else if (principal2.src.lastIndexOf("atd0198") === 66) extendGuia();
