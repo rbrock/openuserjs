@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      0.1.4
+// @version      0.1.5
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
@@ -30,7 +30,7 @@ GM_addStyle(jConfirm);
     if (principal2.src.lastIndexOf("ace003d") === 62) extendHome();
     if (principal2.src.lastIndexOf("atd0198") === 66) extendGuia();
             
-    function extendHome(
+    function extendHome() {
         // jumpToNext
         $.confirm({
             title: 'Dr. Watson',
@@ -57,7 +57,7 @@ GM_addStyle(jConfirm);
                 }
             }
         });
-    )
+    }
     
     function extendGuia(){
         var num_pedido = principal2.querySelector("#num_pedido")
