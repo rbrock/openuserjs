@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      0.1.011
+// @version      0.1.012
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
@@ -73,11 +73,11 @@ $(document).ready(function(){
     'use strict';
     console.log("Dr. Watson is ready", $(document));
     
-    $("#iframeasp").on("load", function() {
-        console.log("Dr. Watson is ready", $("#iframeasp"));
+    $("#principal2").on("load", function() {
+        console.log("Dr. Watson is ready", $("#principal2"));
         
-            var currentFrame = $('#principal2').context.activeElement.src;
-            console.log(currentFrame);
+            //var currentFrame = $('#principal2').context.activeElement.src;
+            //console.log(currentFrame);
 
 //        $("#principal2").on("load", function() {
 //            console.log("Dr. Watson is ready", $("#principal2"));
