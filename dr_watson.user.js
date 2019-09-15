@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      0.1.015
+// @version      0.1.016
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
@@ -37,7 +37,8 @@ function extendHome() {
                 text: "Sim",
                 btnClass: 'btn-green',
                 action: function () {
-                    document.querySelector("#dropdown-lvlATD22 > div > ul > li:nth-child(10) > a").click();
+                    $("#btn-menu").click()
+                    $("#dropdown-lvlATD22 > div > ul > li:nth-child(10) > a").click();
                 }
             },
             cancel: {
@@ -51,22 +52,26 @@ function extendHome() {
 }
 
 function extendGuia(){
-    var num_pedido = principal2.querySelector("#num_pedido")
+    if($('#num_pedido').length) {
+        /* GUIA CARREGADA */
+        GM_addStyle(`
+            table#tbAnexo {
+                position: fixed;
+                display: block;
+                top: 10px;
+                left: 10px;
+                background-color: rgb(0, 79, 114);
+            }
 
-    GM_addStyle(`
-        table#tbAnexo {
-            position: fixed;
-            display: block;
-            top: 10px;
-            left: 10px;
-            background-color: rgb(0, 79, 114);
-        }
-
-        th.grid_cabecalho {
-            font-family: sans-serif;
-            font-size: xx-small;
-        }
-    `);
+            th.grid_cabecalho {
+                font-family: sans-serif;
+                font-size: xx-small;
+            }
+        `);
+    } else {
+        /* TELA DE PESQUISA */
+        $("#chk_pendente").click();
+    }
 }
  
 $(document).ready(function(){
@@ -80,21 +85,7 @@ $(document).ready(function(){
         
         if (currentFrame.lastIndexOf("ace003d.asp") === 85) extendHome();
         else if (currentFrame.lastIndexOf("atd0198a.asp") === 89) extendGuia();
-        
-        
-            //var currentFrame = $('#principal2').context.activeElement.src;
-            //console.log(currentFrame);
-
-//        $("#principal2").on("load", function() {
-//            console.log("Dr. Watson is ready", $("#principal2"));
-//            var currentFrame = $('#principal2').context.activeElement.src;
-//            console.log(currentFrame);
-//            extendHome();
-//        });
     });
-    
-    //if (principal2.src.lastIndexOf("ace003d") === 62) extendHome();
-    //else if (principal2.src.lastIndexOf("atd0198") === 66) extendGuia();
     
     console.log("Dr. Watson is done.");
 });
