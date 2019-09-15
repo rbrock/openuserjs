@@ -54,6 +54,7 @@ th.grid_cabecalho {
             btnClass: 'btn-green',
             action: function () {
                 document.querySelector("#dropdown-lvlATD22 > div > ul > li:nth-child(10) > a").click();
+                document.querySelector("#chk_pendente").click()
             }
         },
         cancel: {
