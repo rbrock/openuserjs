@@ -5,7 +5,7 @@
 // @author       Rodolpho Brock
 // @copyright    2019, rbrock (https://openuserjs.org/users/rbrock)
 // @license      AGPL-3.0-or-later
-// @version      0.1.014
+// @version      0.1.015
 // @match        https://topsaudev12.sistemas.centralnacionalunimed.com.br/TSNMVC/TSNMVC/Home/AreaLogada
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js
 // @resource     jConfirm https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css
@@ -75,9 +75,11 @@ $(document).ready(function(){
     
     $("#iframeasp").on("load", function() {
         console.log("Dr. Watson is ready", $("#iframeasp"));
-        var iframeaspSrc = $("#iframeasp")[0].src;
-        console.log("Dr. Watson current", iframeaspSrc);
+        var currentFrame = $("#iframeasp")[0].src;
+        console.log("Dr. Watson current", currentFrame);
         
+        if (currentFrame.lastIndexOf("ace003d.asp") === 85) extendHome();
+        else if (currentFrame.lastIndexOf("atd0198a.asp") === 89) extendGuia();
         
         
             //var currentFrame = $('#principal2').context.activeElement.src;
